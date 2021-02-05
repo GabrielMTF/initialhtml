@@ -1,47 +1,137 @@
-Google Glass
-A revolução do Google está chegando
+<DOCTYPE html>
+    <html lang="pt-br">
 
-[AQUI ENTRA UMA FOTO]
-
-Menu Principal
-- Home
-- Especificações
-- Fotos
-- Multimídia
-- Fale conosco
-
-Fale Conosco > Contato
-Formulário de Contato
-por Gustavo Guanabara
-Atualizado em 01/Maio/2013
-
-Identificação do Usuário
-    Nome:
-    Senha:
-    E-mail:
-    Sexo:
-        - Masculino
-        - Feminino
-    Data de Nascimento:
-
-Endereço do Usuário
-    Logradouro:
-    Número:
-    Estado:
-    Cidade:
-
-Mensagem do Usuário
-    Grau de Urgência:
-    Mensagem:
-
-Quero um Google Glass
-    Gostaria de adquirir um Google Glass quando disponível
-    Cor:
-    Quantidade:
-    Preço Total: R$
+    <head>
+        <meta charset="UTF-8" />
+        <title>Tudo sobre Google Glass</title>
+        <link rel="stylesheet" type="text/css" href="_css/estilo.css">
+        <link rel="stylesheet" type:="text/css" href="_css/form.css">
 
 
-[BOTÃO ENVIAR]
+    </head>
+    <script language="javascript" src="_javascript/funcoes.js"></script>
+    <script>
+        function calc_total() {
+            var qtd = parseInt(document.getElementById('idQtd').value);
+            tot = qtd * 1500;
+            document.getElementById('idPtot').value = tot;
+        }
+    </script>
 
-Copyright 2013 - by Gustavo Guanabara
-Facebook | Twitter
+    <body>
+        <div id="interface">
+            <header id="cabecalho">
+                <hgroup>
+
+                    <h1>
+                        Google Glass
+
+                    </h1>
+                    <h2>
+                        A revolução do Google está chegando
+
+                    </h2>
+                </hgroup>
+                <img id="icone" src="_imagens/contato.png" />
+                <nav id="menu">
+                    <h1>Menu Principal</h1>
+
+                    <ul type="disc">
+                        <li onmouseover="mudaFoto('_imagens/home.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a
+                                href="index.html">Home</a></li>
+
+                        <li onmouseover="mudaFoto('_imagens/especificacoes.png')"
+                            onmouseout="mudaFoto('_imagens/contato.png')"><a href="specs.html">Especificações</a></li>
+
+                        <li onmouseover="mudaFoto('_imagens/fotos.png')" onmouseout="mudaFoto('_imagens/contato.png')">
+                            <a href="fotos.html">Fotos</a>
+                        </li>
+
+                        <li onmouseover="mudaFoto('_imagens/multimidia.png')"
+                            onmouseout="mudaFoto('_imagens/contato.png')"><a href="multimidia.html">Multimídia</a></li>
+
+                        <li onmouseover="mudaFoto('_imagens/contato.png')"
+                            onmouseout="mudaFoto('_imagens/contato.png')"><a href="fale-conosco.html">Fale conosco</a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <section id="corpo-full">
+                <article id="noticia-principal">
+                    <header id="cabecalho-artigo">
+
+                        <hgroup>
+                            <h3>Fale Conosco > Contato</h3>
+                            <h1>Formulário de Contato</h1>
+                            <h2>por Gustavo Guanabara</h2>
+                            <h3 id="direita">Atualizado em 01/Maio/2013</h3>
+                        </hgroup>
+                    </header>
+
+                    <form method="POST" id="fContato" action="mailto:gabrielmota287@gmail.com" oninput="calc_total();">
+                        <fieldset id="usuario">
+                            <legend>Identificação do Usuário</legend>
+                            <p><label for="idNome">Nome:</label><input type="text" name="nNome" id="idNome" size="20" maxlength="35" placeholder="Nome Completo"></p>
+                            <p><label for="idSenha">Senha:</label><input type="password" name="nSenha" id="idSenha" size="8" maxlength="8" placeholder="8 Dígitos"></p>
+                            <p><label for="idmail">E-mail:</label><input type="email" name="nMail" id="idmail" placeholder="Example@gmail.com"></p>
+                        <fieldset id="sexo">
+                            <legend>Sexo</legend>
+                             <input type="radio" name="nSex" id="idMasc"> <label for="idMasc">Masculino</label><br/>
+                              <input type="radio" name="nSex" id="idFem"> <label for="idFem">Feminino</label>
+                            </fieldset>
+                            <p><label for="idData">Data de Nascimento:</label><input type="date" name="nData" id=idData></p>
+                        </fieldset>
+                        
+                        <fieldset id="endereco">
+                            <legend>Endereço do Usuário</legend>
+                            <p><label for="idLogra">Logradouro:</label><input type="text" name="nLogra" id="idLogra" size="20" maxlength="100" placeholder="Rua, Av, Bairro..."></p>
+                            <p><label for="idNumber">Número:</label><input type="number" name="nNumber" id="idNumber" max="1000000" min="0" placeholder="1406..."></p>
+                            <p><label for="idEst">Estado:</label><select name="nEst" id="idEst" >
+                                <optgroup label="Região sudeste">
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="ES">Espírito Santo</option>
+                            </optgroup>
+                            <optgroup label="Região Centro-Oeste">
+                                <option value="MT">Mato Grosso</option>
+                                <option value="GO">Goiás</option>
+                                <option value="DF" selected>Distrito Federal</option>
+                            </optgroup>
+                            </select></p>
+                            <p><label for="idCid">Cidade:</label><input type="text" name="nCid" id="idCid" size="20" maxlength="50" list="citys"></p>
+                            <datalist id="citys">
+                                <Option value="Rio de Janeiro"></Option>
+                                <option value="Nova Iguaçu"></option>
+                                <option value="Niterói"></option>
+                                <option value="Belford Roxo"></option>
+                            </datalist>
+                        </fieldset>
+
+                        <fieldset id="mensagem">
+                            <legend>Mensagem do Usuário</legend>
+                            <p><label>Grau de Urgência: Mín</label><input type="range" name="nGrau" id="idGrau" min="0" max="10" >Máx</p>
+                            <p></label>Mensagem:</label><textarea name="nMsg" id="idMsg" cols="45" rows="5" placeholder="Deixe aqui sua mensagem"></textarea></p>
+                        </fieldset>
+
+                        <fieldset id="comprar">
+                            <legend>Quero um Google Glass</legend>
+                            <p><input type="checkbox" name="nBuy" id="idBuy"><label for="idBuy"> de adquirir um Google Glass quando disponível</label></p>
+                            <p><label for="idColor">Cor:<input type="color" name="nColor" id="idColor" value="#0000FF"></label></p>
+                            <p><label for="iqQtd">Quantidade:<input type="number" name="nQtd" id="idQtd" max="10000" min="1" value="0"></label></p>
+                            <p><label for="idPtot">Preço Total: R$<input type="text" name="nPtot" id="idPtot" placeholder="Total a pagar" readonly></label></p>
+                        </fieldset>
+
+
+                        <input type="image" src="_imagens/botao-enviar.png">
+
+                    </form>
+                </article>
+            </section>
+
+            <footer id="rodape">
+
+                <h3>&copy;Copyright 2013 - by Gustavo Guanabara</h3>
+                <h3><a href="https://facebook.com/cursosemvideo" target="_blank">Facebook</a> | <a
+                        href="https://twitter.com/cursosemvideo" target="_blank">Twitter</a></h3>
+            </footer>
+    </body>
